@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2014 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="msapplication-tap-highlight" content="no" />
+        <!-- WARNING: for iOS 7, remove the width=device-width and height=device-height attributes. See https://issues.apache.org/jira/browse/CB-4323 -->
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+    	<script type="text/javascript" language="JavaScript">
+			function loadData()
+			{
+				var table = document.getElementById("dataTable");
+				for(var i =0; i < 100; i++)
+				{
+					var num1 = Math.floor((Math.random() * 10) + 1);
+					if(num1 > 9)
+					{
+						num1 = 9;
+					}
+					var num2 = Math.floor((Math.random() * 10) + 1);
+					if(num2 > 9)
+					{
+						num2 = 9;
+					}
+					
+					var url = "http://fillmurray.com/20" + num1 + "/20" + num2;
+					var row = table.insertRow(i);
+					var cell = row.insertCell(0);
+					var img = document.createElement("img");
+					img.src = url;
+					cell.appendChild(img);
+				}	
+			}
+        </script>
+        <title>100's of Bills - Phone Gap</title>
+    </head>
+    <body onload="loadData()">
+    <br />
+    <input type="button" value="Reload" onclick="loadData()" />
+    <table id="dataTable" width="100%" border = "0">
+    </table>
+    </body>
+</html>
